@@ -66,11 +66,15 @@
 
 <script>
   import timeTravelConfig from './timeTravelConfig.json'
+  import FontAwesomeIcon  from '@fortawesome/vue-fontawesome'
   const googleMapsClient = require('@google/maps').createClient({
     key: timeTravelConfig.googleMapsAPIKey
   })
   export default {
     name: 'TimeTravel',
+    components: {
+      FontAwesomeIcon
+    },
     data: function() {
       return {
         locations: timeTravelConfig.locations,

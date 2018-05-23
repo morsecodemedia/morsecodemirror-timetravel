@@ -4,8 +4,7 @@
       <div class="location-container">
         <div class="location-btn"
           v-for="loc in locations"
-          :key="loc.id"
-          @click="timeTravel(loc.latitude,loc.longitude)">
+          :key="loc.id">
           <p>{{loc.label}}</p>
           <address>
             <span>{{loc.address.address1}}</span><br />
@@ -13,6 +12,25 @@
             <span v-if="loc.address.address3">{{loc.address.address3}}<br /></span>
             <span>{{loc.address.city}}, {{loc.address.state}} {{loc.address.zip}}</span>
           </address>
+          <ul>
+            <li>
+              <button class="transit-type"
+              @click="timeTravel(loc.latitude,loc.longitude,'driving')">D</button>
+            </li>
+            <li>
+              <button class="transit-type"
+              @click="timeTravel(loc.latitude,loc.longitude,'walking')">W</button>
+            </li>
+            <li>
+              <button class="transit-type"
+              @click="timeTravel(loc.latitude,loc.longitude,'bicycling')">B</button>
+            </li>
+            <li>
+              <button class="transit-type"
+              @click="timeTravel(loc.latitude,loc.longitude,'transit')">T</button>
+            </li>
+          </ul>
+
           <p v-if="loc.latitude && loc.longitude">{{loc.latitude}}, {{loc.longitude}}</p>
         </div>
       </div>
@@ -70,35 +88,44 @@
             case 'OK':
               this.travelResponse = data.routes
             break
+            case 'NOT_FOUND':
+              this.travelError = "<strong>NOT FOUND:</strong> At least one of the locations specified in the request's origin, destination, or waypoints could not be geocoded."
+            break
             case 'ZERO_RESULTS':
-              this.travelError = 'ZERO_RESULTS'
+              this.travelError = "<strong>ZERO RESULTS:</strong> No route could be found between the origin and destination."
             break
             case 'OVER_QUERY_LIMIT':
-              this.travelError = 'OVER_QUERY_LIMIT'
+              this.travelError = '<strong>OVER QUERY LIMIT:</strong> The service has received too many requests from your application within the allowed time period.'
             break
             case 'REQUEST_DENIED':
-              this.travelError = 'REQUEST_DENIED'
+              this.travelError = '<strong>REQUEST DENIED:</strong> The service denied use of the directions service by your application.'
             break
             case 'INVALID_REQUEST':
-              this.travelError = 'INVALID_REQUEST'
+              this.travelError = '<strong>INVALID REQUEST:</strong> The provided request was invalid. Common causes of this status include an invalid parameter or parameter value.'
             break
             case 'UNKNOWN_ERROR':
-              this.travelError = 'UNKNOWN_ERROR'
+              this.travelError = '<strong>UNKNOWN ERROR:</strong> A directions request could not be processed due to a server error. The request may succeed if you try again.'
+            break
+            case 'MAX_WAYPOINTS_EXCEEDED':
+              this.travelError = '<strong>MAX WAYPOINTS EXCEEDED:</strong> Too many waypoints were provided in the request.'
+            break;
+            case 'MAX_ROUTE_LENGTH_EXCEEDED':
+              this.travelError = '<strong>MAX ROUTE LENGTH EXCEEDED:</strong> The requested route is too long and cannot be processed. This error occurs when more complex directions are returned. Try reducing the number of waypoints, turns, or instructions.'
             break
             default:
-              this.travelError = 'BROKEN'
+              this.travelError = '<strong>BROKEN:</strong> Somehow you got here. This is a bigger problem than you know.'
             break
           }
         } else {
-          this.travelError = 'errObj: '+errObj
+          this.travelError = '<strong>errObj:</strong> '+errObj
         }
       },
-      timeTravel(lat,long) {
+      timeTravel(lat,long,mode) {
         var timeToLeave = Math.round(new Date() / 1000)
         googleMapsClient.directions({
           origin: this.home.latitude+','+this.home.longitude,
           destination: lat+','+long,
-          mode: 'driving',
+          mode: mode,
           departure_time: timeToLeave,
           traffic_model: 'pessimistic'
         }, this.parseTimeTravel)

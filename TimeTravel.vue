@@ -15,19 +15,19 @@
           <ul>
             <li>
               <button class="transit-type"
-              @click="timeTravel(loc.latitude,loc.longitude,'driving')">D</button>
+              @click="timeTravel(loc.latitude,loc.longitude,'driving')"><font-awesome-icon icon="car" /></button>
             </li>
             <li>
               <button class="transit-type"
-              @click="timeTravel(loc.latitude,loc.longitude,'walking')">W</button>
+              @click="timeTravel(loc.latitude,loc.longitude,'walking')"><font-awesome-icon icon="walking" /></button>
             </li>
             <li>
               <button class="transit-type"
-              @click="timeTravel(loc.latitude,loc.longitude,'bicycling')">B</button>
+              @click="timeTravel(loc.latitude,loc.longitude,'bicycling')"><font-awesome-icon icon="bicycle" /></button>
             </li>
             <li>
               <button class="transit-type"
-              @click="timeTravel(loc.latitude,loc.longitude,'transit')">T</button>
+              @click="timeTravel(loc.latitude,loc.longitude,'transit')"><font-awesome-icon icon="subway" /></button>
             </li>
           </ul>
 

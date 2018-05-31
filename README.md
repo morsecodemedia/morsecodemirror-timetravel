@@ -1,4 +1,4 @@
-# morsecodemirror-timetravel
+# MorseCodeMirror: Time Travel
 
 [![GitHub license](https://img.shields.io/github/license/morsecodemedia/morsecodemirror-timetravel.svg)](https://github.com/morsecodemedia/morsecodemirror-timetravel/blob/master/LICENSE) 
 ![Github All Releases](https://img.shields.io/github/downloads/morsecodemedia/morsecodemirror-timetravel/total.svg) 
@@ -8,3 +8,10 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/morsecodemedia/morsecodemirror-timetravel.svg)  
 
 This Google Maps directions/time to travel module is a Vue component meant for the morsecodemirror smart mirror project.
+
+## Licensing
+
+The code in this project is licensed under MIT license with the exception of
+bundled 3rd party libraries such as (but not limited to):
+
+* The Google Maps API

@@ -1,4 +1,4 @@
-# MorseCodeMirror: Time Travel
+# @morsecodemedia/morsecodemirror-timetravel
 
 [![GitHub license](https://img.shields.io/github/license/morsecodemedia/morsecodemirror-timetravel.svg)](https://github.com/morsecodemedia/morsecodemirror-timetravel/blob/master/LICENSE) 
 ![Github All Releases](https://img.shields.io/github/downloads/morsecodemedia/morsecodemirror-timetravel/total.svg) 

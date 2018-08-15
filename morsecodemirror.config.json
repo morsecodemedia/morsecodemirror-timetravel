@@ -1,5 +1,14 @@
 {
+  "twilioAuthToken": "",
+  "twilioAccountSid": "",
+  "twilioNumber": "",
+  "openWeatherMapAPIKey": "",
+  "darkSkyAPIKey": "",
   "googleMapsAPIKey": "",
+  "lang": "en",
+  "timezone": "America/New_York",
+  "unitsofMeasurement": "imperial",
+  "weatherRefreshInterval": 600000,
   "home": {
 		"label": "",
 		"address": {

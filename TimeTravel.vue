@@ -80,8 +80,34 @@
     },
     data: function() {
       return {
-        locations: config.locations,
-        home: config.home,
+        home: {
+          "label": "",
+          "address": {
+            "address1": "",
+            "address2": "",
+            "address3": "",
+            "city": "",
+            "state": "",
+            "zip": ""
+          },
+          "latitude": "",
+          "longitude": ""
+        },
+        locations: [
+          {
+            "label": "",
+            "address": {
+              "address1": "",
+              "address2": "",
+              "address3": "",
+              "city": "",
+              "state": "",
+              "zip": ""
+            },
+            "latitude": "",
+            "longitude": ""
+          }
+        ],
         travelResponse: '',
         travelError: ''
       }
@@ -173,10 +199,12 @@
       }
     },
     beforeMount () {
-      // Example of configuration overrides
-      // if (config.setting && config.setting.length > 0) {
-      //   this.setting = config.setting
-      // }
+      if (config && config.home && config.home.length > 0) {
+        this.home = config.home
+      }
+      if (config && config.locations && config.locations.length > 0) {
+        this.locations = config.locations
+      }
     },
   }
 </script>
@@ -304,4 +332,3 @@
     color: #8b0000;
   }
 </style>
-

@@ -1,7 +1,7 @@
 {
   "name": "@morsecodemedia/morsecodemirror-timetravel",
   "description": "This Google Directions module is a Vue component meant for the morsecodemirror smart mirror project.",
-  "version": "00.01.00",
+  "version": "00.03.00",
   "main": "TimeTravel.vue",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",

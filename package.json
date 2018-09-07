@@ -1,7 +1,7 @@
 {
   "name": "@morsecodemedia/morsecodemirror-timetravel",
   "description": "This Google Directions module is a Vue component meant for the morsecodemirror smart mirror project.",
-  "version": "00.03.00",
+  "version": "00.03.01",
   "main": "TimeTravel.vue",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -17,7 +17,13 @@
     "type": "git",
     "url": "git+https://github.com/morsecodemedia/morsecodemirror-timetravel.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Vue",
+    "Electron",
+    "Google Maps",
+    "Google Directions",
+    "DayJS"
+  ],
   "author": "brandonmorse <brandon@morsecodemedia.com> (https://www.morsecodemedia.com)",
   "license": "MIT",
   "bugs": {
